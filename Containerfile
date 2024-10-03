@@ -30,13 +30,14 @@ RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 # Copy the S2I scripts to the default location indicated by the
 # io.openshift.s2i.scripts-url LABEL (default is /usr/libexec/s2i)
 COPY ./s2i/bin/ /usr/libexec/s2i
+COPY ./log.py /
 
 ENV APP_DIRS /var/www/ /run/httpd/ /etc/httpd/logs/ /var/log/httpd/
 
 RUN chown -R 1001:1001 $APP_DIRS && \
     chgrp -R 0 $APP_DIRS && \
     chmod -R g=u $APP_DIRS && \
-    chmod +x /usr/libexec/s2i/assemble /usr/libexec/s2i/run /usr/libexec/s2i/usage
+    chmod +x /usr/libexec/s2i/assemble /usr/libexec/s2i/run /usr/libexec/s2i/usage /log.py
 
 # This default user is created in the rhel7 image
 USER 1001
