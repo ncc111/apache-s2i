@@ -21,6 +21,7 @@ ENV DOCROOT /var/www/html
 
 
 RUN   yum install -y --nodocs --disableplugin=subscription-manager httpd && \
+      yum install -y --nodocs --disableplugin=subscription-manager python3 && \
       yum clean all --disableplugin=subscription-manager -y && \
       echo "This is the default index page from the s2i-do288-httpd S2I builder image." > ${DOCROOT}/index.html
 
