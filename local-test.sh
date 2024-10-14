@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name of the log file where script output will be saved
-LOGFILE="/opt/app-root/src/build-post-commit.log"
+LOGFILE="/opt/app-root/src/logs/build-post-commit.log"
 
 # Print the current date and time to the log file
 echo "Build post-commit hook executed on $(date)" >> $LOGFILE
