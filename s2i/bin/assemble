@@ -14,4 +14,4 @@ if [[ "$1" == "-h" ]]; then
 fi
 
 echo "---> Copying source files to web server directory..."
-cp -Rf /tmp/src/ /var/www/html/
+cp -Rf /tmp/src/*.html /var/www/html/
